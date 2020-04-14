@@ -1,5 +1,5 @@
 from configparser import ConfigParser
-from os import name
+from os import name, system
 from pathlib import Path
 from sys import argv
 
@@ -19,7 +19,7 @@ class Zoomy():
         elif argv[1] == 'delete' or argv[1] == 'd':
             self.delete()
         else:
-            self.help()
+            self.open()
 
     def add(self):
         if len(argv) < 4:
@@ -53,6 +53,17 @@ class Zoomy():
                 print("Error: Couldn't write to file.")
         else:
             print("Error: meeting does not exist.")
+
+    def open(self):
+        joiner = '^' if name == "nt" else '\\'
+        opener = 'start' if name == "nt" else 'xdg-open'
+        conf = self.meetings.get(argv[2])
+        if ',' in conf:
+            conf, pwd = conf.split(",")
+        cmd = f"{opener} zoommtg://zoom.us/join?confno={conf}" if ',' not in \
+            conf else f"{opener} zoommtg://zoom.us/join?confno={conf}{joiner} \
+            &pwd={pwd}"
+        system(cmd)
 
 
 def zoomy():
