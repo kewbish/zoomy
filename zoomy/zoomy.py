@@ -36,7 +36,7 @@ class Zoomy():
             formatted_meet = f"{argv[3]}"
         self.zm.set('Meetings', argv[2], formatted_meet)
         try:
-            with open(self.p, 'w+') as x:
+            with open(self.p, 'w') as x:
                 self.zm.write(x)
         except PermissionError:
             print("Error: Couldn't write to file.")
@@ -50,7 +50,7 @@ class Zoomy():
         if self.zm.has_option("Meetings", argv[2]):
             try:
                 self.zm.remove_option("Meetings", argv[2])
-                with open(self.p, 'w+') as x:
+                with open(self.p, 'w') as x:
                     self.zm.write(x)
             except PermissionError:
                 print("Error: Couldn't write to file.")
