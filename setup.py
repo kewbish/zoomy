@@ -17,6 +17,5 @@ setuptools.setup(
     entry_points='''
         [console_scripts]
         zoomy=zoomy.zoomy:zoomy
-    ''',
-    python_requires='>=3.6',
+    '''
 )
