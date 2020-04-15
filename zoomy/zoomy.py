@@ -14,11 +14,14 @@ class Zoomy():
         self.meetings = dict(self.zm._sections["Meetings"])
 
     def runner(self):
+        if len(argv) == 1:
+            print("Error: No arguments.\nUsage: zoomy [args]")
+            return
         if argv[1] == 'add' or argv[1] == 'a':
             self.add()
         elif argv[1] == 'delete' or argv[1] == 'd':
             self.delete()
-        else:
+        elif argv[1]:
             self.open()
 
     def add(self):
@@ -57,12 +60,12 @@ class Zoomy():
     def open(self):
         joiner = '^' if name == "nt" else '\\'
         opener = 'start' if name == "nt" else 'xdg-open'
-        conf = self.meetings.get(argv[2])
+        conf = self.meetings.get(argv[1])
         if ',' in conf:
-            conf, pwd = conf.split(",")
+            confa, pwd = conf.split(",")
         cmd = f"{opener} zoommtg://zoom.us/join?confno={conf}" if ',' not in \
-            conf else f"{opener} zoommtg://zoom.us/join?confno={conf}{joiner} \
-            &pwd={pwd}"
+            conf else f"{opener} zoommtg://zoom.us/join?confno={confa}" \
+            f"{joiner}&pwd={pwd}"
         system(cmd)
 
 
