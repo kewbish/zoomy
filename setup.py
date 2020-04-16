@@ -1,11 +1,16 @@
 import setuptools
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setuptools.setup(
     name="zoomy",
-    version="0.1",
+    version="0.2",
     author="Kewbish",
     author_email="kewbish@gmail.com",
     description="A Zoom utility for the terminal",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     url="https://github.com/kewbish/zoomy",
     packages=setuptools.find_packages(),
     classifiers=[
