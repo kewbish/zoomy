@@ -21,6 +21,8 @@ class Zoomy():
             self.add()
         elif argv[1] == 'delete' or argv[1] == 'd':
             self.delete()
+        elif argv[1] == 'list' or argv[1] == 'l':
+            self.list_all()
         elif argv[1]:
             self.open()
 
@@ -68,6 +70,15 @@ class Zoomy():
             else f"{opener} zoommtg://zoom.us/join?confno={conf[0]}" \
             f"{joiner}&pwd={conf[1]}"
         system(cmd)
+
+    def list_all(self):
+        print("You have the following saved meetings:")
+        for x in self.meetings:
+            conf = self.meetings.get(x).split(",")
+            s = f"{x}: Conference number - {conf[0]}"
+            if len(conf) > 1:
+                s += f", password - {conf[1]}"
+            print(s)
 
 
 def zoomy():
