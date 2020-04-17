@@ -37,6 +37,8 @@ It simplifies the process of remembering all those links and passwords, especial
 - Bugfix: Implement file generator if fresh install  
 **0.2.2**:  
 - Feature: Add support for passwords with commas  
+**0.2.3**:
+- Delete requirements.txt
 
 **0.1**:
 - Started project!
