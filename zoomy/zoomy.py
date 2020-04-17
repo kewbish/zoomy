@@ -1,15 +1,17 @@
 from configparser import ConfigParser
-from os import name, system
-from pathlib import Path
+from os import name, system, path as pth
 from sys import argv
 
 
 class Zoomy():
     def __init__(self):
         self.zm = ConfigParser()
-        P = Path(__file__)
-        self.p = P.parent.joinpath('config.zmy')
+        P = pth.dirname(__file__)
+        self.p = pth.join(P, 'config.zmy')
         del P
+        if not pth.isfile(self.p):
+            with open(self.p, 'w') as x:
+                x.write('[Meetings]')
         self.zm.read(self.p)
         self.meetings = dict(self.zm._sections["Meetings"])
 
