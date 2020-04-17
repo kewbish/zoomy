@@ -26,3 +26,18 @@ Your conference number is passed in from a saved configuration file, and passed 
 It simplifies the process of remembering all those links and passwords, especially if you don't use Zoom signed in or if you don't keep passwords saved.  
 
 > :warning: - This does expose your meeting IDs and passwords (if you choose to supply them), and it *is* possible, if a hacker decided, to `grep` your entire system for a `.zmy` file and infiltrate your meeting. Use at your own risk.  
+
+## :fast_forward: Changelog
+**0.2**:   
+- Feature: Add list meetings function  
+- Docs: Update docs with additional instructions for list and warning about commas  
+- Docs: Add long description to PyPi  
+- Docs: Add changelog  
+**0.2.1**:  
+- Bugfix: Implement file generator if fresh install  
+**0.2.2**:  
+- Feature: Add support for passwords with commas  
+
+**0.1**:
+- Started project!
+- Docs: Create docs
