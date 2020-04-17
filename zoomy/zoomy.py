@@ -6,9 +6,7 @@ from sys import argv
 class Zoomy():
     def __init__(self):
         self.zm = ConfigParser()
-        P = pth.dirname(__file__)
-        self.p = pth.join(P, 'config.zmy')
-        del P
+        self.p = pth.join(pth.dirname(__file__), 'config.zmy')
         if not pth.isfile(self.p):
             with open(self.p, 'w') as x:
                 x.write('[Meetings]')
@@ -66,17 +64,16 @@ class Zoomy():
         opener = 'start' if name == "nt" else 'xdg-open'
         conf = self.meetings.get(argv[1])
         if ',' in conf:
-            conf = conf.split(",")
+            conf = conf.split(",", 1)
             t = True
-        cmd = f"{opener} zoommtg://zoom.us/join?confno={conf}" if t \
-            else f"{opener} zoommtg://zoom.us/join?confno={conf[0]}" \
-            f"{joiner}&pwd={conf[1]}"
-        system(cmd)
+        system(f"{opener} zoommtg://zoom.us/join?confno={conf}" if t
+               else f"{opener} zoommtg://zoom.us/join?confno={conf[0]}"
+               f"{joiner}&pwd={conf[1]}")
 
     def list_all(self):
         print("You have the following saved meetings:")
         for x in self.meetings:
-            conf = self.meetings.get(x).split(",")
+            conf = self.meetings.get(x).split(",", 1)
             s = f"{x}: Conference number - {conf[0]}"
             if len(conf) > 1:
                 s += f", password - {conf[1]}"

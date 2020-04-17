@@ -12,7 +12,7 @@ Also works in signed-out mode - just in case (like me) you don't want to give Zo
 
 ## :movie_camera: Usage
 Run `zoomy [alias]` to open your `alias` meeting. For example, `zoomy math` to open your math meeting.  
-Run `zoomy add [alias] [confno] [pwd]` or `zoomy a [alias] [confno] [pwd]` to add a meeting called `alias` with the conference number `confno` and the password `pwd`. Adding a password is optional. Your meetings cannot be called `add` or `delete` (or `a` / `d`). This option can also be used to edit currently saved meetings.  
+Run `zoomy add [alias] [confno] [pwd]` or `zoomy a [alias] [confno] [pwd]` to add a meeting called `alias` with the conference number `confno` and the password `pwd`. Adding a password is optional. Your meetings cannot be called `add`, `delete`, or `list` (or `a` / `d` / `l`). This option can also be used to edit currently saved meetings.  
 Run `zoomy delete [alias]` or `zoomy d [alias]` to delete your `alias` meeting. For example, `zoomy d math` to delete your math meeting.  
 Run `zoomy list` or `zoomy l` to list all your available meetings.  
 
@@ -26,4 +26,3 @@ Your conference number is passed in from a saved configuration file, and passed 
 It simplifies the process of remembering all those links and passwords, especially if you don't use Zoom signed in or if you don't keep passwords saved.  
 
 > :warning: - This does expose your meeting IDs and passwords (if you choose to supply them), and it *is* possible, if a hacker decided, to `grep` your entire system for a `.zmy` file and infiltrate your meeting. Use at your own risk.  
-> :warning: - This also doesn't support passwords with commas in them, due to how the passwords are retrieved. In that case, save only the conference number, and manually enter the password.  
