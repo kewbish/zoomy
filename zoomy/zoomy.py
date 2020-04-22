@@ -15,7 +15,7 @@ class Zoomy():
 
     def runner(self):
         if len(argv) == 1:
-            print("Error: No arguments.\nUsage: zoomy [args]")
+            print("Error: No command.\nUsage: zoomy [add/a, delete/d, list,l]")
             return
         if argv[1] == 'add' or argv[1] == 'a':
             self.add()
@@ -30,7 +30,7 @@ class Zoomy():
         if len(argv) < 4:
             print(
                 "Error: Please enter the correct amount of arguments.\n"
-                + "Usage: zoomy add [name] [confno]")
+                + "Usage: zoomy add [name] [confno] [*pwd]")
             return
         try:
             formatted_meet = f"{argv[3]},{argv[4]}"
@@ -57,19 +57,23 @@ class Zoomy():
             except PermissionError:
                 print("Error: Couldn't write to file.")
         else:
-            print("Error: meeting does not exist.")
+            print("Error: Meeting does not exist.")
 
     def open(self):
         joiner = '^' if name == "nt" else '\\'
         opener = 'start' if name == "nt" else 'xdg-open'
-        conf = self.meetings.get(argv[1])
-        t = True
-        if ',' in conf:
-            conf = conf.split(",", 1)
-            t = False
-        system(f"{opener} zoommtg://zoom.us/join?confno={conf}" if not t
-               else f"{opener} zoommtg://zoom.us/join?confno={conf[0]}"
-               f"{joiner}&pwd={conf[1]}")
+        if self.zm.has_option("Meetings", argv[1]):
+            conf = self.meetings.get(argv[1])
+            t = True
+            if ',' in conf:
+                conf = conf.split(",", 1)
+                t = False
+            system(f"{opener} zoommtg://zoom.us/join?confno={conf}" if not t
+                   else f"{opener} zoommtg://zoom.us/join?confno={conf[0]}"
+                   f"{joiner}&pwd={conf[1]}")
+        else:
+            print("Error: Meeting does not exist.\nRun zoomy add [alias] "
+                  "[confno] [*pwd] first, then `zoomy [alias]`")
 
     def list_all(self):
         print("You have the following saved meetings:")
