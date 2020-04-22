@@ -39,6 +39,8 @@ It simplifies the process of remembering all those links and passwords, especial
 - Feature: Add support for passwords with commas  
 **0.2.3**:
 - Delete requirements.txt
+**0.2.4**:
+- Bugfix: Fix logic if password added
 
 **0.1**:
 - Started project!

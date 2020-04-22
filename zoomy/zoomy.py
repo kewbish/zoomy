@@ -63,10 +63,11 @@ class Zoomy():
         joiner = '^' if name == "nt" else '\\'
         opener = 'start' if name == "nt" else 'xdg-open'
         conf = self.meetings.get(argv[1])
+        t = True
         if ',' in conf:
             conf = conf.split(",", 1)
-            t = True
-        system(f"{opener} zoommtg://zoom.us/join?confno={conf}" if t
+            t = False
+        system(f"{opener} zoommtg://zoom.us/join?confno={conf}" if not t
                else f"{opener} zoommtg://zoom.us/join?confno={conf[0]}"
                f"{joiner}&pwd={conf[1]}")
 
