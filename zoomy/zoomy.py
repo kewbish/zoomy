@@ -15,22 +15,32 @@ class Zoomy():
 
     def runner(self):
         if len(argv) == 1:
-            print("Error: No command.\nUsage: zoomy [add/a, delete/d, list,l]")
+            self.help()
             return
-        if argv[1] == 'add' or argv[1] == 'a':
+        if argv[1] in ('add', 'a'):
             self.add()
-        elif argv[1] == 'delete' or argv[1] == 'd':
+        elif argv[1] in ('delete', 'd'):
             self.delete()
-        elif argv[1] == 'list' or argv[1] == 'l':
+        elif argv[1] in ('list', 'l'):
             self.list_all()
+        elif argv[1] in ('--help', '--h'):
+            self.help()
         elif argv[1]:
             self.open()
+
+    def help(self):
+        print("\nWelcome to Zoomy - a Zoom utility for the terminal.")
+        print("Commands:\n- zoomy [add/a] [alias] [confno] [*pwd]")
+        print("- zoomy [delete/d] [alias]")
+        print("- zoomy [list/l]")
+        print("- zoomy [--help/--h]")
+        print("Created by Kewbish - https://github.com/kewbish/zoomy")
 
     def add(self):
         if len(argv) < 4:
             print(
                 "Error: Please enter the correct amount of arguments.\n"
-                + "Usage: zoomy add [name] [confno] [*pwd]")
+                + "Usage: zoomy [add/a] [name] [confno] [*pwd]")
             return
         try:
             formatted_meet = f"{argv[3]},{argv[4]}"
@@ -47,7 +57,7 @@ class Zoomy():
         if len(argv) < 3:
             print(
                 "Error: Please enter the correct amount of arguments.\n"
-                + "Usage: zoomy delete [name]")
+                + "Usage: zoomy [delete/d] [name]")
             return
         if self.zm.has_option("Meetings", argv[2]):
             try:
@@ -57,7 +67,8 @@ class Zoomy():
             except PermissionError:
                 print("Error: Couldn't write to file.")
         else:
-            print("Error: Meeting does not exist.")
+            print("Error: Meeting does not exist.\nRun zoomy add [alias] "
+                  "[confno] [*pwd] first, then `zoomy [alias]`")
 
     def open(self):
         joiner = '^' if name == "nt" else '\\'
