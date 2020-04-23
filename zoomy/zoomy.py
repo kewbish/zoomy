@@ -79,7 +79,7 @@ class Zoomy():
             if ',' in conf:
                 conf = conf.split(",", 1)
                 t = False
-            system(f"{opener} zoommtg://zoom.us/join?confno={conf}" if not t
+            system(f"{opener} zoommtg://zoom.us/join?confno={conf}" if t
                    else f"{opener} zoommtg://zoom.us/join?confno={conf[0]}"
                    f"{joiner}&pwd={conf[1]}")
         else:

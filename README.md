@@ -35,6 +35,8 @@ It simplifies the process of remembering all those links and passwords, especial
 - Feature: Add a help flag
 - Restructure elif blocks
 - Docs: Update for help flag
+**0.3.2**:
+- Bugfix: Revert conference logic
 
 **0.2**:   
 - Feature: Add list meetings function  
