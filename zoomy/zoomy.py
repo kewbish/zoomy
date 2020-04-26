@@ -40,7 +40,7 @@ class Zoomy():
         if len(argv) < 4:
             print(
                 "Error: Please enter the correct amount of arguments.\n"
-                + "Usage: zoomy [add/a] [name] [confno] [*pwd]")
+                + "Usage: zmy [add/a] [name] [confno] [*pwd]")
             return
         try:
             formatted_meet = f"{argv[3]},{argv[4]}"
@@ -67,7 +67,7 @@ class Zoomy():
             except PermissionError:
                 print("Error: Couldn't write to file.")
         else:
-            print("Error: Meeting does not exist.\nRun zoomy add [alias] "
+            print("Error: Meeting does not exist.\nRun zmy add [alias] "
                   "[confno] [*pwd] first, then `zmy [alias]`")
 
     def open(self):
