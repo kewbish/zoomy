@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="zoomy",
-    version="0.3.2",
+    version="0.4",
     author="Kewbish",
     author_email="kewbish@gmail.com",
     description="A Zoom utility for the terminal",
@@ -21,6 +21,6 @@ setuptools.setup(
     ],
     entry_points='''
         [console_scripts]
-        zoomy=zoomy.zoomy:zoomy
+        zmy=zoomy.zoomy:zoomy
     '''
 )
