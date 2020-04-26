@@ -11,11 +11,11 @@ Zoomy is for you. Quick to use, light, and besides, *cool automation*.
 Also works in signed-out mode - just in case (like me) you don't want to give Zoom your personal information!  
 
 ## :movie_camera: Usage
-Run `zoomy [alias]` to open your `alias` meeting. For example, `zoomy math` to open your math meeting.  
-Run `zoomy add [alias] [confno] [*pwd]` or `zoomy a [alias] [confno] [*pwd]` to add a meeting called `alias` with the conference number `confno` and the password `pwd`. Adding a password is optional. Your meetings cannot be called `add`, `delete`, or `list` (or `a` / `d` / `l`). This option can also be used to edit currently saved meetings.  
-Run `zoomy delete [alias]` or `zoomy d [alias]` to delete your `alias` meeting. For example, `zoomy d math` to delete your math meeting.  
-Run `zoomy list` or `zoomy l` to list all your available meetings.  
-Run `zoomy --help` or `zoomy --h` to get help.    
+Run `zmy [alias]` to open your `alias` meeting. For example, `zmy math` to open your math meeting.  
+Run `zmy add [alias] [confno] [*pwd]` or `zmy a [alias] [confno] [*pwd]` to add a meeting called `alias` with the conference number `confno` and the password `pwd`. Adding a password is optional. Your meetings cannot be called `add`, `delete`, or `list` (or `a` / `d` / `l`). This option can also be used to edit currently saved meetings.  
+Run `zmy delete [alias]` or `zmy d [alias]` to delete your `alias` meeting. For example, `zmy d math` to delete your math meeting.  
+Run `zmy list` or `zmy l` to list all your available meetings.  
+Run `zmy --help` or `zmy --h` to get help.    
 
 ## :wrench: Installation
 Install via PyPi by running `pip install zoomy`. This requires Python to be installed.  

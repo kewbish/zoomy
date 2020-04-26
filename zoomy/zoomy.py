@@ -30,10 +30,10 @@ class Zoomy():
 
     def help(self):
         print("\nWelcome to Zoomy - a Zoom utility for the terminal.")
-        print("Commands:\n- zoomy [add/a] [alias] [confno] [*pwd]")
-        print("- zoomy [delete/d] [alias]")
-        print("- zoomy [list/l]")
-        print("- zoomy [--help/--h]")
+        print("Commands:\n- zmy [add/a] [alias] [confno] [*pwd]")
+        print("- zmy [delete/d] [alias]")
+        print("- zmy [list/l]")
+        print("- zmy [--help/--h]")
         print("Created by Kewbish - https://github.com/kewbish/zoomy")
 
     def add(self):
@@ -57,7 +57,7 @@ class Zoomy():
         if len(argv) < 3:
             print(
                 "Error: Please enter the correct amount of arguments.\n"
-                + "Usage: zoomy [delete/d] [name]")
+                + "Usage: zmy [delete/d] [name]")
             return
         if self.zm.has_option("Meetings", argv[2]):
             try:
@@ -68,7 +68,7 @@ class Zoomy():
                 print("Error: Couldn't write to file.")
         else:
             print("Error: Meeting does not exist.\nRun zoomy add [alias] "
-                  "[confno] [*pwd] first, then `zoomy [alias]`")
+                  "[confno] [*pwd] first, then `zmy [alias]`")
 
     def open(self):
         joiner = '^' if name == "nt" else '\\'
@@ -83,8 +83,8 @@ class Zoomy():
                    else f"{opener} zoommtg://zoom.us/join?confno={conf[0]}"
                    f"{joiner}&pwd={conf[1]}")
         else:
-            print("Error: Meeting does not exist.\nRun zoomy add [alias] "
-                  "[confno] [*pwd] first, then `zoomy [alias]`")
+            print("Error: Meeting does not exist.\nRun zmy add [alias] "
+                  "[confno] [*pwd] first, then `zmy [alias]`")
 
     def list_all(self):
         print("You have the following saved meetings:")
