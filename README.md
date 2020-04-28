@@ -12,9 +12,10 @@ Also works in signed-out mode - just in case (like me) you don't want to give Zo
 
 ## :movie_camera: Usage
 Run `zmy [alias]` to open your `alias` meeting. For example, `zmy math` to open your math meeting.  
-Run `zmy add [alias] [confno] [*pwd]` or `zmy a [alias] [confno] [*pwd]` to add a meeting called `alias` with the conference number `confno` and the password `pwd`. Adding a password is optional. Your meetings cannot be called `add`, `delete`, or `list` (or `a` / `d` / `l`). This option can also be used to edit currently saved meetings.  
+Run `zmy add [alias] [confno] [*pwd]` or `zmy a [alias] [confno] [*pwd]` to add a meeting called `alias` with the conference number `confno` and the password `pwd`. Adding a password is optional. Your meetings cannot be called `add`, `delete`, `list`, or `path` (or `a` / `d` / `l` / `p`). This option can also be used to edit currently saved meetings.  
 Run `zmy delete [alias]` or `zmy d [alias]` to delete your `alias` meeting. For example, `zmy d math` to delete your math meeting.  
 Run `zmy list` or `zmy l` to list all your available meetings.  
+Run `zmy path` or `zmy p` to print your `config.zmy` filepath.  
 Run `zmy --help` or `zmy --h` to get help.    
 
 ## :wrench: Installation
@@ -31,6 +32,10 @@ It simplifies the process of remembering all those links and passwords, especial
 ## :fast_forward: Changelog
 **0.4**:
 - Feature: Change `zoomy` alias to `zmy`
+**0.4.1**:
+- Feature: Add path print
+**0.4.2**:
+- Feature: Disallow invalid names
 
 **0.3**:
 - Bugfix: Add meeting checks (breaks more elegantly)

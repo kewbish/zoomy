@@ -23,6 +23,8 @@ class Zoomy():
             self.delete()
         elif argv[1] in ('list', 'l'):
             self.list_all()
+        elif argv[1] in ('path', 'p'):
+            self.path()
         elif argv[1] in ('--help', '--h'):
             self.help()
         elif argv[1]:
@@ -33,6 +35,7 @@ class Zoomy():
         print("Commands:\n- zmy [add/a] [alias] [confno] [*pwd]")
         print("- zmy [delete/d] [alias]")
         print("- zmy [list/l]")
+        print("- zmy [path/p]")
         print("- zmy [--help/--h]")
         print("Created by Kewbish - https://github.com/kewbish/zoomy")
 
@@ -41,6 +44,10 @@ class Zoomy():
             print(
                 "Error: Please enter the correct amount of arguments.\n"
                 + "Usage: zmy [add/a] [name] [confno] [*pwd]")
+            return
+        if argv[2] in ['add', 'a', 'delete', 'd', 'list', 'l', 'path', 'p',
+                       '--help', '--h']:
+            print("Error: Invalid name, alias cannot be made.")
             return
         try:
             formatted_meet = f"{argv[3]},{argv[4]}"
@@ -94,6 +101,9 @@ class Zoomy():
             if len(conf) > 1:
                 s += f", password - {conf[1]}"
             print(s)
+
+    def path(self):
+        print(f"The path to your .zmy file is {self.p}.")
 
 
 def zoomy():
