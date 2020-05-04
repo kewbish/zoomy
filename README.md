@@ -30,6 +30,9 @@ It simplifies the process of remembering all those links and passwords, especial
 > :warning: - This does expose your meeting IDs and passwords (if you choose to supply them), and it *is* possible, if a hacker decided, to `grep` your entire system for a `.zmy` file and infiltrate your meeting. Use at your own risk.  
 
 ## :fast_forward: Changelog
+**0.5**:
+- Feature: Add success messages
+
 **0.4**:
 - Feature: Change `zoomy` alias to `zmy`
 **0.4.1**:

@@ -57,6 +57,7 @@ class Zoomy():
         try:
             with open(self.p, 'w') as x:
                 self.zm.write(x)
+            print(f"Success: Meeting {argv[2]} added.")
         except PermissionError:
             print("Error: Couldn't write to file.")
 
@@ -71,6 +72,7 @@ class Zoomy():
                 self.zm.remove_option("Meetings", argv[2])
                 with open(self.p, 'w') as x:
                     self.zm.write(x)
+                print(f"Success: Meeting {argv[2]} deleted.")
             except PermissionError:
                 print("Error: Couldn't write to file.")
         else:
@@ -89,6 +91,7 @@ class Zoomy():
             system(f"{opener} zoommtg://zoom.us/join?confno={conf}" if t
                    else f"{opener} zoommtg://zoom.us/join?confno={conf[0]}"
                    f"{joiner}&pwd={conf[1]}")
+            print(f"Success: Meeting {argv[1]} opened.")
         else:
             print("Error: Meeting does not exist.\nRun zmy add [alias] "
                   "[confno] [*pwd] first, then `zmy [alias]`")
